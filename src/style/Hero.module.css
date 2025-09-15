@@ -11,13 +11,24 @@
 }
 
 .hero-card {
-    font-size: 3rem;
+    font-size: clamp(1rem, 2rem, 3rem)
 }
 .hero-card > h1 {
-    font-size: 5rem;
+    font-size: clamp(2.5rem, 4rem, 5rem);
 }
 
 .hero-buttons {
     display: flex;
     gap: 1vw;
+}
+
+@media (max-width: 576px) {
+.hero {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    text-align: center;
+}
+.hero-buttons{
+    justify-content: center;
+}
 }
