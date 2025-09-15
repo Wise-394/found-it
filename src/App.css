@@ -1,10 +1,15 @@
+:root {
+  --primary-color: #ffc300;
+  --contrast-color: #003566;
+}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 Button {
-    padding: 1.5vh 2vw;
-    background-color: transparent;
-    border: 1px solid white;
+  padding: 1.5vh 2vw;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 0;
 }

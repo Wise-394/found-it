@@ -8,12 +8,21 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95); 
+  background: rgba(255, 255, 255, 0.1); 
   backdrop-filter: blur(8px);            
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
   z-index: 1000;
-  gap: 1vw
+  gap: 1vw;
+  color: var(--primary-color);
+  font-size: clamp(1rem,2rem ,3rem);
+  font-weight: 900;
 }
 .header button:first-of-type {
   margin-left: auto;
+}
+.header button {
+    background-color: var(--contrast-color);
+    color: white;
+    border: 0;
+
 }
