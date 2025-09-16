@@ -1,10 +1,15 @@
 import style from "../style/Header.module.css";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <header className = {style.header}>
+    <header className={style.header}>
       <p>Found It</p>
-      <button>Login</button>
-      <button>SignUp</button>
+      <Link to="/login">
+        <button>Login</button>
+      </Link>
+      <Link to="/signup">
+        <button>SignUp</button>
+      </Link>
     </header>
   );
 };

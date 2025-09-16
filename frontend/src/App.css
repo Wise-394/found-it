@@ -2,11 +2,19 @@
   --primary-color: #ffc300;
   --contrast-color: #003566;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 Button {
   padding: 1.5vh 2vw;
   background-color: transparent;
@@ -14,6 +22,6 @@ Button {
   border: 0;
 }
 Button:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+  transform: scale(1.05);
+  cursor: pointer;
 }
