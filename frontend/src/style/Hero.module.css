@@ -12,6 +12,9 @@
 
 .hero-card {
   font-size: clamp(1rem, 2rem, 3rem);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 3%;
+  border-radius: 15px;
 }
 .hero-card > h1 {
   font-size: clamp(2.5rem, 4rem, 5rem);
@@ -26,7 +29,7 @@
 .hero-buttons button {
   background-color: var(--contrast-color);
   color: white;
-
+  font-weight: bold;
 }
 
 @media (max-width: 576px) {
