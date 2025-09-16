@@ -3,7 +3,8 @@ const SignUpForm = () => {
     e.preventDefault();
 
     const formData = {
-      fullname: e.target.fullname.value,
+      firstname: e.target.firstname.value,
+      lastname: e.target.lastname.value,
       username: e.target.username.value,
       password: e.target.password.value,
     };
@@ -25,18 +26,46 @@ const SignUpForm = () => {
   return (
     <form onSubmit={register}>
       <div>
-        <label htmlFor="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required />
+        <label htmlFor="firstname">First Name:</label>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          required
+          minLength={6}
+        />
+      </div>
+      <div>
+        <label htmlFor="lastname">Last Name:</label>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          required
+          minLength={6}
+        />
       </div>
 
       <div>
         <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          minLength={8}
+        />
       </div>
 
       <div>
         <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          minLength={8}
+        />
       </div>
 
       <button type="submit">Submit</button>

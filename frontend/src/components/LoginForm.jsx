@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
+  const navigate = useNavigate();
   const login = async (e) => {
     e.preventDefault();
 
@@ -12,10 +14,16 @@ const LoginForm = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+        credentials: "include",
       });
 
       const data = await response.json();
-      console.log("Response from server:", data);
+
+      if (data.success) {
+        navigate("/home");
+      } else {
+        console.log("Response from server:", data);
+      }
     } catch (error) {
       console.error("Error:", error);
     }

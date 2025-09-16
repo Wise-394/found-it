@@ -4,10 +4,10 @@ async function login(pool, username, password) {
     [username, password]
   );
   if (result.rows.length > 0){
-    return true;
+    return { success: true, message: "successfully logged in" }
   } else {
-    return false;
+    return { success: false, message: "incorrect username or password" }
   }
 }
 
-module.exports = login;
+export default login;
