@@ -61,6 +61,13 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.get("/auth/check", (req, res) => {
+  if (req.session.user) {
+    return res.json({ loggedIn: true, user: req.session.user });
+  }
+  res.status(401).json({ loggedIn: false });
+});
+
 app.get("/home", (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: "Not logged in" });
