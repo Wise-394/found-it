@@ -13,9 +13,7 @@ const Signup = () => {
             <button>Go back</button>
           </Link>
         </header>
-        <main>
-          <h1>Sign up</h1>
-          <p>Create an account to access FoundIt!</p>
+        <main className={style.main}>
           <SignUpForm />
         </main>
       </div>

@@ -7,8 +7,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await logout(); // ✅ updates context + calls backend
-    navigate("/");  // redirect to landing
+    await logout(); 
+    navigate("/");  
   };
 
   return (

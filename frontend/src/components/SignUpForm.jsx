@@ -1,3 +1,4 @@
+import style from "../style/LoginSignup.module.css";
 const SignUpForm = () => {
   const register = async (e) => {
     e.preventDefault();
@@ -24,7 +25,9 @@ const SignUpForm = () => {
   };
 
   return (
-    <form onSubmit={register}>
+    <form onSubmit={register} className={style.form}>
+      <h1>Sign up</h1>
+      <p>Create an account to access FoundIt!</p>
       <div>
         <label htmlFor="firstname">First Name:</label>
         <input

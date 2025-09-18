@@ -13,9 +13,7 @@ const Login = () => {
             <button>Go back</button>
           </Link>
         </header>
-        <main>
-          <h1>Log In</h1>
-          <p>Login To Your Account!</p>
+        <main className= {style.main}>
           <LoginForm />
         </main>
       </div>

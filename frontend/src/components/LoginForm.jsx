@@ -1,5 +1,6 @@
+import style from "../style/LoginSignup.module.css";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // adjust path if needed
+import { useAuth } from "../context/AuthContext";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -24,8 +25,8 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (data.success) {
-        login(); // ✅ update AuthContext so ProtectedRoute sees you as logged in
-        navigate("/home"); // now /home will render instead of redirecting
+        login();
+        navigate("/home");
       } else {
         console.log("Response from server:", data);
       }
@@ -35,16 +36,14 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-      </div>
+    <form onSubmit={handleLogin} className={style.form}>
+      <h1>Log In</h1>
+      <p>Login To Your Account!</p>
+      <label htmlFor="username">Username:</label>
+      <input type="text" id="username" name="username" required />
 
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" required />
-      </div>
+      <label htmlFor="password">Password:</label>
+      <input type="password" id="password" name="password" required />
 
       <button type="submit">Submit</button>
     </form>
