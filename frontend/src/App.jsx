@@ -8,15 +8,36 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Routes>
+        {/* Public route */}
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+
+        {/* Public but blocked if logged in */}
+        <Route
+          path="/signup"
+          element={
+            <ProtectedRoute redirectToIfLoggedIn="/home">
+              <Signup />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            <ProtectedRoute redirectToIfLoggedIn="/home">
+              <Login />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected route (must be logged in) */}
         <Route
           path="/home"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute redirectToIfNotLoggedIn="/">
               <Home />
             </ProtectedRoute>
           }

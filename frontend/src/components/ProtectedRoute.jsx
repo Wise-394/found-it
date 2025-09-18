@@ -1,21 +1,24 @@
-import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // adjust path
 
-const ProtectedRoute = ({ children }) => {
-  const [loading, setLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    fetch("api/auth/check", { credentials: "include" })
-      .then((res) => {
-        if (res.ok) setIsLoggedIn(true);
-        else setIsLoggedIn(false);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+const ProtectedRoute = ({
+  children,
+  redirectToIfNotLoggedIn = null,
+  redirectToIfLoggedIn = null,
+}) => {
+  const { isAuthenticated, loading } = useAuth();
 
   if (loading) return <div>Loading...</div>;
-  if (!isLoggedIn) return <Navigate to="/" />;
+
+  // Redirect if logged in but route is public-only
+  if (isAuthenticated && redirectToIfLoggedIn) {
+    return <Navigate to={redirectToIfLoggedIn} replace />;
+  }
+
+  // Redirect if not logged in but route is private
+  if (!isAuthenticated && redirectToIfNotLoggedIn) {
+    return <Navigate to={redirectToIfNotLoggedIn} replace />;
+  }
 
   return children;
 };

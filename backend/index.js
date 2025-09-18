@@ -65,7 +65,7 @@ app.get("/auth/check", (req, res) => {
   if (req.session.user) {
     return res.json({ loggedIn: true, user: req.session.user });
   }
-  res.status(401).json({ loggedIn: false });
+  res.json({ loggedIn: false });
 });
 
 app.get("/home", (req, res) => {
